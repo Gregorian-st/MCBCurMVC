@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OuI-dp-ghP">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Currencies-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="MCBCurMVC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KuY-em-WSE">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="rateCell" id="gYW-LH-Ps1" customClass="RatesTableViewCell" customModule="MCBCurMVC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gYW-LH-Ps1" id="b4E-N3-f3T">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="kiT-df-X6y" kind="show" identifier="showDetail" trigger="accessoryAction" id="S0Y-5C-JKB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="ILS-c8-NDF"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="YmS-Yv-dyz"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KuY-em-WSE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3QD-Or-SQ0"/>
+                            <constraint firstItem="KuY-em-WSE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cC1-Nj-NKY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KuY-em-WSE" secondAttribute="bottom" id="eYu-UD-gQx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KuY-em-WSE" secondAttribute="trailing" id="hif-wg-hpa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Currencies" id="IqH-20-CvM">
+                        <barButtonItem key="backBarButtonItem" title=" " id="yK9-VQ-RiS"/>
+                        <barButtonItem key="rightBarButtonItem" id="5ZJ-IK-pdW">
+                            <imageReference key="image" image="arrow.triangle.2.circlepath" catalog="system" symbolScale="large"/>
+                            <connections>
+                                <action selector="refreshButtonTapped:" destination="BYZ-38-t0r" id="fqW-hg-slu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ratesTableView" destination="KuY-em-WSE" id="4ai-kQ-Ryx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="864" y="116"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="L7g-X2-OS8">
+            <objects>
+                <viewController id="kiT-df-X6y" customClass="DetailViewController" customModule="MCBCurMVC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="45Y-Hh-W3J">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1Qy-Nh-n6u">
+                                <rect key="frame" x="20" y="108" width="374" height="305.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="0tp: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9A-yw-soH" userLabel="TpLabel">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" text="1name: " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0y-EM-bAY" userLabel="NameLabel">
+                                        <rect key="frame" x="0.0" y="28.5" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" text="2from: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0z-A2-3Ri" userLabel="FromLabel">
+                                        <rect key="frame" x="0.0" y="57" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" text="3currMnemFrom: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZO-yR-mS7" userLabel="CurrMnemFromLabel">
+                                        <rect key="frame" x="0.0" y="85.5" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" text="4to: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3d-gI-CN1" userLabel="ToLabel">
+                                        <rect key="frame" x="0.0" y="114" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" text="5currMnemTo: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GS2-U2-1OX" userLabel="CurrMnemToLabel">
+                                        <rect key="frame" x="0.0" y="142.5" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" text="6basic: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k51-3k-SAp" userLabel="BasicLabel">
+                                        <rect key="frame" x="0.0" y="171" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" text="7buy: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbN-Hw-yzI" userLabel="BuyLabel">
+                                        <rect key="frame" x="0.0" y="199.5" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" text="8sale: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mbw-2c-3gK" userLabel="SaleLabel">
+                                        <rect key="frame" x="0.0" y="228" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="9" contentMode="left" text="9deltaBuy: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FE-CG-8qd" userLabel="DeltaBuyLabel">
+                                        <rect key="frame" x="0.0" y="256.5" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" text="10deltaSale: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRS-Px-8VL" userLabel="DeltaSaleLabel">
+                                        <rect key="frame" x="0.0" y="285" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Fc5-QA-Qk3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1Qy-Nh-n6u" firstAttribute="top" secondItem="Fc5-QA-Qk3" secondAttribute="top" constant="20" id="428-SD-hAV"/>
+                            <constraint firstItem="1Qy-Nh-n6u" firstAttribute="leading" secondItem="Fc5-QA-Qk3" secondAttribute="leading" constant="20" id="V1i-Gm-bf0"/>
+                            <constraint firstItem="Fc5-QA-Qk3" firstAttribute="trailing" secondItem="1Qy-Nh-n6u" secondAttribute="trailing" constant="20" id="w1f-Uh-14v"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="UYm-qv-nzn"/>
+                    <connections>
+                        <outletCollection property="rateLabels" destination="T9A-yw-soH" collectionClass="NSMutableArray" id="CNm-Jj-dhk"/>
+                        <outletCollection property="rateLabels" destination="V0y-EM-bAY" collectionClass="NSMutableArray" id="1tr-Yl-Z8A"/>
+                        <outletCollection property="rateLabels" destination="J0z-A2-3Ri" collectionClass="NSMutableArray" id="Dma-1G-9fs"/>
+                        <outletCollection property="rateLabels" destination="kZO-yR-mS7" collectionClass="NSMutableArray" id="8cH-92-UIz"/>
+                        <outletCollection property="rateLabels" destination="A3d-gI-CN1" collectionClass="NSMutableArray" id="Vcv-sr-M4j"/>
+                        <outletCollection property="rateLabels" destination="GS2-U2-1OX" collectionClass="NSMutableArray" id="9Zd-kU-xVZ"/>
+                        <outletCollection property="rateLabels" destination="k51-3k-SAp" collectionClass="NSMutableArray" id="1DZ-4d-zcf"/>
+                        <outletCollection property="rateLabels" destination="NbN-Hw-yzI" collectionClass="NSMutableArray" id="pT2-A3-Feq"/>
+                        <outletCollection property="rateLabels" destination="Mbw-2c-3gK" collectionClass="NSMutableArray" id="X69-hR-FYd"/>
+                        <outletCollection property="rateLabels" destination="1FE-CG-8qd" collectionClass="NSMutableArray" id="d7N-ck-5Gb"/>
+                        <outletCollection property="rateLabels" destination="cRS-Px-8VL" collectionClass="NSMutableArray" id="Qjf-xg-TCQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Bz-Fg-aAP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1726" y="116"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Pwe-Qf-TEv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OuI-dp-ghP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="t1t-fE-lGi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9iZ-sW-dgJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CkD-ND-4PT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-32" y="116"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.triangle.2.circlepath" catalog="system" width="128" height="101"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
